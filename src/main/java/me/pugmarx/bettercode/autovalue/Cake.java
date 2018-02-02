@@ -2,8 +2,6 @@ package me.pugmarx.bettercode.autovalue;
 
 
 import com.google.auto.value.AutoValue;
-import com.sun.istack.internal.Nullable;
-import me.pugmarx.bettercode.builder.Builder;
 
 /**
  * Demo of *Item 10* from EffectiveJava 3/E.
@@ -29,27 +27,33 @@ abstract class Cake {
 
     abstract int oil();
 
-    static Builder builder() {
+//    static Maker builder() {
+//        // return builder instance with defaults for non-required field
+//        return new AutoValue_Cake.Builder().oil(0).cocoa(0).icing(0).sugar(0).eggs(0);
+//    }
+
+    static Maker builder(int flourCups, int bakingPowderOz) {
         // return builder instance with defaults for non-required field
-        return new AutoValue_Cake.Builder().oil(0).cocoa(0).icing(0).sugar(0).eggs(0);
+        return new AutoValue_Cake.Builder().flour(flourCups).bakingPowder(bakingPowderOz).oil(0).cocoa(0).icing(0)
+                .sugar(0).eggs(0);
     }
 
     @AutoValue.Builder
-    abstract static class Builder {
+    abstract static class Maker {
 
-        abstract Builder flour(int flourCups);
+        abstract Maker flour(int flourCups);
 
-        abstract Builder bakingPowder(int bakingPwdrOz);
+        abstract Maker bakingPowder(int bakingPwdrOz);
 
-        abstract Builder oil(int oilOz);
+        abstract Maker oil(int oilOz);
 
-        abstract Builder cocoa(int cocoaMg);
+        abstract Maker cocoa(int cocoaMg);
 
-        abstract Builder icing(int icingMg);
+        abstract Maker icing(int icingMg);
 
-        abstract Builder sugar(int sugarMg);
+        abstract Maker sugar(int sugarMg);
 
-        abstract Builder eggs(int eggCount);
+        abstract Maker eggs(int eggCount);
 
         abstract Cake build();
     }
