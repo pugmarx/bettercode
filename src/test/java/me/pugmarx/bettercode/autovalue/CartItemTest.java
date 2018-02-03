@@ -10,7 +10,6 @@ public class CartItemTest {
         CartItem item1 = CartItem.create(10,33, 12);
         CartItem item2 = CartItem.create(10,33, 12);
 
-        assertEquals(item1, item2);
+        assertEquals(item1, item2); // this would be true
     }
-
 }

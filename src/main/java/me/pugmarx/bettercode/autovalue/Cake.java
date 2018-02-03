@@ -13,24 +13,14 @@ import com.google.auto.value.AutoValue;
 @AutoValue
 abstract class Cake {
     abstract int flour();
-
     abstract int bakingPowder();
 
     // Optional params
     abstract int eggs();
-
     abstract int icing();
-
     abstract int sugar();
-
     abstract int cocoa();
-
     abstract int oil();
-
-//    static Maker builder() {
-//        // return builder instance with defaults for non-required field
-//        return new AutoValue_Cake.Builder().oil(0).cocoa(0).icing(0).sugar(0).eggs(0);
-//    }
 
     static Maker builder(int flourCups, int bakingPowderOz) {
         // return builder instance with defaults for non-required field
@@ -40,19 +30,12 @@ abstract class Cake {
 
     @AutoValue.Builder
     abstract static class Maker {
-
         abstract Maker flour(int flourCups);
-
         abstract Maker bakingPowder(int bakingPwdrOz);
-
         abstract Maker oil(int oilOz);
-
         abstract Maker cocoa(int cocoaMg);
-
         abstract Maker icing(int icingMg);
-
         abstract Maker sugar(int sugarMg);
-
         abstract Maker eggs(int eggCount);
 
         abstract Cake build();
